@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <h1 id="mensagem">Clique no botão abaixo e receba uma flor</h1>
+    <button id="btn" onclick="showImage()"><span>🌹</span></button>
+    <img id="imagem" src="" alt="Flor" style="display: none;">
+    <button id="btnVoltar" onclick="showMessage()" style="display: none;">Voltar</button>
+  </div>
+
+  <script>
+    var mensagemElement = document.getElementById("mensagem");
+    var botaoElement = document.getElementById("btn");
+    var imagemElement = document.getElementById("imagem");
+    var botaoVoltarElement = document.getElementById("btnVoltar");
+
+    var imagens = [
+      "img/1.png",
+      "img/2.png",
+      // Adicione mais URLs de imagens conforme necessário
+    ];
+
+    function getRandomImageIndex() {
+      return Math.floor(Math.random() * imagens.length);
+    }
+
+    function showImage() {
+      mensagemElement.style.display = "none";
+      botaoElement.style.display = "none";
+      imagemElement.style.display = "block";
+      botaoVoltarElement.style.display = "block";
+
+      var imagemIndex = getRandomImageIndex();
+      imagemElement.src = imagens[imagemIndex];
+    }
+
+    function showMessage() {
+      mensagemElement.style.display = "block";
+      botaoElement.style.display = "block";
+      imagemElement.style.display = "none";
+      botaoVoltarElement.style.display = "none";
+    }
+  </script>
+</body>
+</html>
